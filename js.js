@@ -108,9 +108,29 @@ await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[1]/di
 await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[3]/div[2]/input')).sendKeys('0524455586')
 await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[5]/div[2]/div/div/input')).sendKeys('qa@oxs.co.il')
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[1]/div[2]/div[2]/footer/center/div[2]/button')).click();
-await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div[2]/div/div')).click();
+await driver.sleep(4000);
+await driver.findElement(By.css('#modalDescription > div > div.body > div > div')).click();
+await driver.navigate().back();
 
-//Add enather tenant from DAIARIM list
+//Add another tenant from DAIARIM list
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[2]/div/p')).click();
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[2]/ul/li[1]/p')).click();
+await driver.sleep(4000);
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div[3]/table/tbody/tr[2]/td[1]/span/p')).click();
+await driver.sleep(4000);
+await driver.findElement(By.id('toolBarFilesIcon')).click();
+await driver.findElement(By.xpath('//*[@id="toptoolbar"]/div[3]/div[1]/div/div/div[1]/p')).click();
+await driver.sleep(4000);
+await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[1]/div[2]/input')).sendKeys('דייר נסיון 1')
+await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[3]/div[2]/input')).sendKeys('0524455586')
+await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[5]/div[2]/div/div/input')).sendKeys('qa@oxs.co.il')
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[1]/div[2]/div[2]/footer/center/div[2]/button')).click();
+await driver.sleep(4000);
+await driver.findElement(By.css('#modalDescription > div > div.body > div > div')).click();
+await driver.navigate().back();
+
+
+
 
 
 
