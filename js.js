@@ -90,9 +90,9 @@ console.log(NewApNumber);
 }
 
 
-EditApNumber();
+//EditApNumber();
 
-//Adding 3 tenants to histadrut 200.
+//Adding 3 tenants to "histadrut" 200.
 async function AddTenats(){
 login();
 
@@ -105,3 +105,4 @@ login();
 
 }
 
+AddTenats();
