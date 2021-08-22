@@ -94,7 +94,8 @@ console.log(NewApNumber);
 
 //Adding 3 tenants to "histadrut" 200.
 async function AddTenats(){
-login();await driver.sleep(10000);
+login();
+await driver.sleep(10000);
 await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/img')).click();
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]')).click();
 await driver.sleep(4000);
@@ -128,29 +129,31 @@ await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[1]/di
 await driver.sleep(4000);
 await driver.findElement(By.css('#modalDescription > div > div.body > div > div')).click();
 await driver.navigate().back();
+await driver.sleep(4000);
+await driver.takeScreenshot().then(
+  function(image, err) {
+      require('fs').writeFile('Screenshot_2tenants.png', image, 'base64', function(err) {
+          console.log(err);
+      });
+  }
+);
+}
+//AddTenats();    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//login specificly to histadrut 200
+async function Histadrut200(){
+login(); 
+await driver.sleep(10000);
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/img')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]')).click();
+await driver.sleep(4000);
 
 
 
 
 
 }
+AddServiceCall()
 
-AddTenats();
+
+//Add service call
