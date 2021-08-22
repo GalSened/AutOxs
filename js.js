@@ -94,7 +94,35 @@ console.log(NewApNumber);
 
 //Adding 3 tenants to "histadrut" 200.
 async function AddTenats(){
-login();
+login();await driver.sleep(10000);
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/img')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]')).click();
+await driver.sleep(4000);
+//Adding first tenant from "TASHLUMIM" page addind tenant from the 3 dots button
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div/div[4]/div/div/tbody/tr[1]/td[2]/div')).click();
+await driver.sleep(4000);
+await driver.findElement(By.id('toolBarFilesIcon')).click();
+await driver.findElement(By.xpath('//*[@id="toptoolbar"]/div[3]/div[1]/div/div/div[1]/p')).click();
+await driver.sleep(4000);
+await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[1]/div[2]/input')).sendKeys('דייר נסיון 1')
+await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[3]/div[2]/input')).sendKeys('0524455586')
+await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[5]/div[2]/div/div/input')).sendKeys('qa@oxs.co.il')
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[1]/div[2]/div[2]/footer/center/div[2]/button')).click();
+await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div[2]/div/div')).click();
+
+//Add enather tenant from DAIARIM list
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
