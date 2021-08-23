@@ -148,25 +148,45 @@ await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]')).click();
 await driver.sleep(4000);
 };
-//LoginHistadrut200()
+LoginHistadrut200()
 
 
 //Add service call
 async function AddServiceCall(){
 //remove if testing in suite
-LoginHistadrut200();
-await driver.sleep(4000);
+await LoginHistadrut200();
+await driver.sleep(3000);
 await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[4]/div/p')).click();
 await driver.sleep(4000);
 await driver.findElement(By.xpath('//*[@id="toptoolbar"]/div[3]/div[1]/img')).click();//open new service call
+await driver.sleep(4000);
 await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div[3]/div[1]/div/div[2]/div[2]/div/div[2]/textarea')).sendKeys("פיצוץ בצינור");//descriptin
 await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div[3]/div[2]/div/div[2]/div[1]/div/div[2]/div/img')).click();//how make the call
-await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div[3]/div[2]/div/div[2]/div[1]/div/div[2]/div/ul/li[1]/span')).click();
+await driver.sleep(2500);
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div[3]/div[2]/div/div[2]/div[1]/div/div[2]/div/ul/li[1]/span')).click();//clicking on manegment company
 await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div[4]/input')).click();//add the call
+await driver.sleep(2500);
 let ServiceCall = await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div[2]/span/span')).getText();
 console.log(ServiceCall);
+//await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div[2]/div/div')).click();
+assert.strictEqual('קריאת שירות חדשה נפתחה בהצלחה',ServiceCall);
 await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div[2]/div/div')).click();
+}
+
+//AddServiceCall();
+
+
+async function ArrangeBuilding(){
+await LoginHistadrut200();
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[2]/div/p')).click();
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[2]/ul/li[3]/p')).click();
+await driver.sleep(4000);
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[3]/div/div[2]')).click();
+await driver.sleep(4000);
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[1]/div[3]/div[2]/input')).sendKeys(3);
+
 
 }
 
-AddServiceCall();
+
+ArrangeBuilding();
