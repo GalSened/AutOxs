@@ -184,6 +184,7 @@ await driver.sleep(4000);
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[3]/div/div[2]')).click();
 await driver.sleep(4000);
 NumOfLevels = await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[1]/div[3]/div[2]/input'))
+await NumOfLevels.click();
 await NumOfLevels.clear();
 await NumOfLevels.sendKeys('3');
 await driver.sleep(4000);
