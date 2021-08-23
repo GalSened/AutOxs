@@ -148,7 +148,7 @@ await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]')).click();
 await driver.sleep(4000);
 };
-LoginHistadrut200()
+//LoginHistadrut200()
 
 
 //Add service call
@@ -183,10 +183,24 @@ await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/
 await driver.sleep(4000);
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[3]/div/div[2]')).click();
 await driver.sleep(4000);
-await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[1]/div[3]/div[2]/input')).sendKeys(3);
-
+NumOfLevels = await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[1]/div[3]/div[2]/input'))
+await NumOfLevels.click();
+await NumOfLevels.clear();
+await NumOfLevels.sendKeys('3');
+await driver.sleep(4000);
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[2]/td[3]/p')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[2]/td[3]/span/div[1]/label/div')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[3]/td[3]/p')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[3]/td[3]/span/div[1]/label/div')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[3]/td[3]/p')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[3]/td[3]/span/div[1]/label/div')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[4]/td[3]/p')).click();
+await driver.sleep(1000);
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[4]/td[3]/span/div[1]/label/div')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[4]/td[3]/p')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[4]/td[3]/span/div/label/div')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[3]/div/button')).click();
 
 }
-
 
 ArrangeBuilding();
