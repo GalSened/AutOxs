@@ -195,10 +195,12 @@ await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/di
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[3]/td[3]/p')).click();
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[3]/td[3]/span/div[1]/label/div')).click();
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[4]/td[3]/p')).click();
-await driver.findElement(By.xpath('<div data-v-2a5cfcb2="" class="uiChecker"></div>')).click();
+await driver.sleep(1000);
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[4]/td[3]/span/div[1]/label/div')).click();
+await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[4]/td[3]/p')).click();
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[2]/table/tbody/tr[4]/td[3]/span/div/label/div')).click();
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[4]/div[3]/div/div/section/div[3]/div/button')).click();
-}
 
+}
 
 ArrangeBuilding();
