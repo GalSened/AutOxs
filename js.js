@@ -148,13 +148,14 @@ await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/
 await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]')).click();
 await driver.sleep(4000);
 };
-LoginHistadrut200()
+//LoginHistadrut200()
 
 
 //Add service call
 async function AddServiceCall(){
 //remove if testing in suite
 LoginHistadrut200();
+await driver.sleep(4000);
 await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[4]/div/p')).click();
 await driver.sleep(4000);
 await driver.findElement(By.xpath('//*[@id="toptoolbar"]/div[3]/div[1]/img')).click();//open new service call
