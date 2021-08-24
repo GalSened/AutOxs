@@ -1,0 +1,21 @@
+{
+  "name": "gitrepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Sanity_Suite.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GalSened/GitRepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GalSened/GitRepo/issues"
+  },
+  "homepage": "https://github.com/GalSened/GitRepo#readme"
+}
