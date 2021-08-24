@@ -1,6 +1,7 @@
 const { Given, When, Then, After, Before } = require("@cucumber/cucumber");
 const assert = require("assert").strict;
 const somePage = require("../GitRepo/js")
+const expect = require('chai').expect;
 
 /*async function Sanity(){
 await somePage.createBuilding();
@@ -12,4 +13,3 @@ await somePage.AddNewExpence();
 Sanity();*/
 
 
-Before
