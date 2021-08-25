@@ -1,4 +1,4 @@
-const { Given, When, Then, After, Before } = require("@cucumber/cucumber");
+const { Given, When, Then, After, Before, BeforeStep } = require("@cucumber/cucumber");
 const assert = require("assert").strict;
 const somePage = require("../GitRepo/js")
 const expect = require('chai').expect;
@@ -12,4 +12,4 @@ await somePage.AddNewExpence();
 }
 Sanity();*/
 
-
+BeforeStep
