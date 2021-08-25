@@ -4,7 +4,15 @@ const { traceDeprecation } = require('process');
 const{Builder, By, Key, util} = require('selenium-webdriver');
 const { threadId } = require('worker_threads');
 let driver =  new Builder().forBrowser('chrome').build();
+const xlsxFile = require('read-excel-file/node');
+ 
+xlsxFile('./Data.xlsx').then((MyData) => {
+    console.log(MyData);
+    console.table(MyData);
 
+
+
+    console.log(MyData[0][0]);
 
 async function openBrowser(){
  
@@ -16,8 +24,8 @@ async function openBrowser(){
   openBrowser();
  
   await driver.findElement(By.css('#view > div > div.header.headerImage > span > button.normal')).click();
-  await driver.findElement(By.xpath('//*[@id="inputs"]/input[1]')).sendKeys('user@test.com');
-  await driver.findElement(By.xpath('//*[@id="inputs"]/input[2]')).sendKeys('123123');
+  await driver.findElement(By.xpath('//*[@id="inputs"]/input[1]')).sendKeys(MyData[0][0]);
+  await driver.findElement(By.xpath('//*[@id="inputs"]/input[2]')).sendKeys(MyData[1][0]);
   await driver.findElement(By.xpath('//*[@id="login-win"]/form/center/input')).click();
   await driver.manage().window().maximize();
   await driver.sleep(10000);
@@ -36,16 +44,16 @@ assert.strictEqual(CompanyName,'בניינים ונהנים בע"מ');
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[1]/div/p')).click();
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[1]/ul/li[3]/p')).click();
 await  driver.sleep(5000);
-await  driver.findElement(By.xpath('//*[@id="city"]')).sendKeys('חולון');
-await  driver.findElement(By.xpath('//*[@id="street"]')).sendKeys('ההסתדרות');
-await  driver.findElement(By.xpath('//*[@id="number"]')).sendKeys('200');
-await  driver.findElement(By.xpath('//*[@id="numberAppartments"]')).sendKeys('5');
-await  driver.findElement(By.xpath('//*[@id="numberAppartmentsConfirm"]')).sendKeys('5');
+await  driver.findElement(By.id('city')).sendKeys(MyData[0][1]);
+await  driver.findElement(By.id('street')).sendKeys(MyData[1][1]);
+await  driver.findElement(By.xpath('//*[@id="number"]')).sendKeys(MyData[2][1]);
+await  driver.findElement(By.xpath('//*[@id="numberAppartments"]')).sendKeys(MyData[3][1]);
+await  driver.findElement(By.xpath('//*[@id="numberAppartmentsConfirm"]')).sendKeys(MyData[3][1]);
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[4]/span/div/form/div[8]/div/button')).click();
 await  driver.sleep(2000);
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[5]/span/div[2]/div/form/div/div[2]/center/button')).click();
 await  driver.sleep(2000);
-await  driver.findElement(By.xpath('//*[@id="amount"]')).sendKeys("150");
+await  driver.findElement(By.xpath('//*[@id="amount"]')).sendKeys(MyData[4][1]);
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[1]/div/input')).click();
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[1]/div/ul/li[1]')).click();
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[2]/div/input')).click();
@@ -57,7 +65,7 @@ await  driver.findElement(By.xpath('//*[@id="done"]/center/input')).click();
 console.log('WE HAVE A BUILDING')
 
 }
-//createBuilding();
+
 
 
 
@@ -91,7 +99,7 @@ console.log(NewApNumber);
 }
 
 
-//EditApNumber();
+
 
 //Adding 3 tenants to "histadrut" 200.
 async function AddTenats(){
@@ -135,7 +143,7 @@ await driver.takeScreenshot().then(
   }
 );
 }
-//AddTenats();    
+   
 
 //login specificly to histadrut 200
 async function LoginHistadrut200(){
@@ -145,7 +153,7 @@ await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/
 await driver.findElement(By.id('61239986e251554777d499c4')).click();
 await driver.sleep(4000);
 };
-LoginHistadrut200()
+
 
 
 //Add service call
@@ -249,3 +257,7 @@ module.exports={
  createBuilding
 
 }
+
+createBuilding();
+
+})
