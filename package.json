@@ -9,7 +9,7 @@
     "xlsx": "^0.17.1"
   },
   "scripts": {
-    "test": ""
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
