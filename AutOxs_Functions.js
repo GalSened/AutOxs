@@ -7,12 +7,10 @@ let driver =  new Builder().forBrowser('chrome').build();
 const xlsxFile = require('read-excel-file/node');
  
 xlsxFile('./Data.xlsx').then((MyData) => {
-    console.log(MyData);
+    
     console.table(MyData);
 
 
-
-    console.log(MyData[0][0]);
 
 async function openBrowser(){
  
@@ -24,8 +22,8 @@ async function openBrowser(){
   openBrowser();
  
   await driver.findElement(By.css('#view > div > div.header.headerImage > span > button.normal')).click();
-  await driver.findElement(By.xpath('//*[@id="inputs"]/input[1]')).sendKeys(MyData[0][0]);
-  await driver.findElement(By.xpath('//*[@id="inputs"]/input[2]')).sendKeys(MyData[1][0]);
+  await driver.findElement(By.xpath('//*[@id="inputs"]/input[1]')).sendKeys(MyData[1][0]);
+  await driver.findElement(By.xpath('//*[@id="inputs"]/input[2]')).sendKeys(MyData[2][0]);
   await driver.findElement(By.xpath('//*[@id="login-win"]/form/center/input')).click();
   await driver.manage().window().maximize();
   await driver.sleep(10000);
@@ -44,16 +42,16 @@ assert.strictEqual(CompanyName,'בניינים ונהנים בע"מ');
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[1]/div/p')).click();
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[1]/ul/li[3]/p')).click();
 await  driver.sleep(5000);
-await  driver.findElement(By.id('city')).sendKeys(MyData[0][1]);
-await  driver.findElement(By.id('street')).sendKeys(MyData[1][1]);
-await  driver.findElement(By.xpath('//*[@id="number"]')).sendKeys(MyData[2][1]);
-await  driver.findElement(By.xpath('//*[@id="numberAppartments"]')).sendKeys(MyData[3][1]);
-await  driver.findElement(By.xpath('//*[@id="numberAppartmentsConfirm"]')).sendKeys(MyData[3][1]);
+await  driver.findElement(By.id('city')).sendKeys(MyData[1][1]);
+await  driver.findElement(By.id('street')).sendKeys(MyData[2][1]);
+await  driver.findElement(By.xpath('//*[@id="number"]')).sendKeys(MyData[3][1]);
+await  driver.findElement(By.xpath('//*[@id="numberAppartments"]')).sendKeys(MyData[4][1]);
+await  driver.findElement(By.xpath('//*[@id="numberAppartmentsConfirm"]')).sendKeys(MyData[4][1]);
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[4]/span/div/form/div[8]/div/button')).click();
 await  driver.sleep(2000);
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[5]/span/div[2]/div/form/div/div[2]/center/button')).click();
 await  driver.sleep(2000);
-await  driver.findElement(By.xpath('//*[@id="amount"]')).sendKeys(MyData[4][1]);
+await  driver.findElement(By.xpath('//*[@id="amount"]')).sendKeys(MyData[5][1]);
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[1]/div/input')).click();
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[1]/div/ul/li[1]')).click();
 await  driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[2]/div/input')).click();
