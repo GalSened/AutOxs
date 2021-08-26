@@ -1,4 +1,5 @@
 
+
 const  assert  = require('assert');
 const { traceDeprecation } = require('process');
 const{Builder, By, Key, util} = require('selenium-webdriver');
@@ -7,16 +8,14 @@ let driver =  new Builder().forBrowser('chrome').build();
 const xlsxFile = require('read-excel-file/node');
  
 xlsxFile('./Data.xlsx').then((MyData) => {
-    
+  
     console.table(MyData);
 
 
-//Opening the browser and nevigate to test's site
 async function openBrowser(){
  
  await  driver.get('http://www.oxs.co.il');
-let BrowserAssert= await driver.getTitle();
- console.log(BrowserAssert);
+
 }
 
 //entering to homepage and loging in
@@ -24,17 +23,14 @@ let BrowserAssert= await driver.getTitle();
   openBrowser();
  
   await driver.findElement(By.css('#view > div > div.header.headerImage > span > button.normal')).click();
-  await driver.findElement(By.xpath('//*[@id="inputs"]/input[1]')).sendKeys(MyData[1][0]);
-  await driver.findElement(By.xpath('//*[@id="inputs"]/input[2]')).sendKeys(MyData[2][0]);
+  await driver.findElement(By.xpath('//*[@id="inputs"]/input[1]')).sendKeys(MyData[0][0]);
+  await driver.findElement(By.xpath('//*[@id="inputs"]/input[2]')).sendKeys(MyData[1][0]);
   await driver.findElement(By.xpath('//*[@id="login-win"]/form/center/input')).click();
   await driver.manage().window().maximize();
   await driver.sleep(10000);
-
 }
 
-
-
-//creating abuilding in company with 5 apartments 
+//creating abuilding in company with 5 apartments qqqqqqq
 
 async function createBuilding(){
 await  login();
@@ -181,7 +177,6 @@ assert.strictEqual('קריאת שירות חדשה נפתחה בהצלחה',Serv
 await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div[2]/div/div')).click();
 }
 
-//AddServiceCall();
 
 
 async function ArrangeBuilding(){
@@ -217,7 +212,7 @@ await driver.takeScreenshot().then(
 );
 
 }
-//ArrangeBuilding();
+
 
 
 
@@ -249,7 +244,7 @@ await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div[2]/span/s
 await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div[2]/div/div')).click();
 
 }
-//AddNewExpence();
+
 module.exports={
   login,
   AddNewExpence,
@@ -257,10 +252,9 @@ module.exports={
   AddServiceCall,
   AddTenats,
   EditApNumber,
-  createBuilding,
-  openBrowser
+ createBuilding
+
 }
 
-//createBuilding();
 
 })

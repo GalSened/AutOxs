@@ -1,6 +1,6 @@
 
 const assert = require("assert");
-const somePage = require(".AutOxs/AutOxs_Functions")
+const somePage = require("./AutOxs_Functions")
 const expect = require('chai').expect;
 
 async function Sanity(){
