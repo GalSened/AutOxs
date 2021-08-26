@@ -11,10 +11,12 @@ xlsxFile('./Data.xlsx').then((MyData) => {
     console.table(MyData);
 
 
-
+//Opening the browser and nevigate to test's site
 async function openBrowser(){
  
  await  driver.get('http://www.oxs.co.il');
+let BrowserAssert= await driver.getTitle();
+ console.log(BrowserAssert);
 }
 
 //entering to homepage and loging in
@@ -27,9 +29,12 @@ async function openBrowser(){
   await driver.findElement(By.xpath('//*[@id="login-win"]/form/center/input')).click();
   await driver.manage().window().maximize();
   await driver.sleep(10000);
+
 }
 
-//creating abuilding in company with 5 apartments qqqqqqq
+
+
+//creating abuilding in company with 5 apartments 
 
 async function createBuilding(){
 await  login();
@@ -252,10 +257,10 @@ module.exports={
   AddServiceCall,
   AddTenats,
   EditApNumber,
- createBuilding
-
+  createBuilding,
+  openBrowser
 }
 
-createBuilding();
+//createBuilding();
 
 })
