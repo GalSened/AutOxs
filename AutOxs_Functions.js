@@ -7,6 +7,7 @@ const { threadId } = require('worker_threads');
 let driver =  new Builder().forBrowser('chrome').build();
 const xlsxFile = require('read-excel-file/node');
 var webdriver = require('selenium-webdriver');
+const { link } = require("fs");
 var map = webdriver.promise.map;
 
 
@@ -274,26 +275,21 @@ await driver.sleep(3000);
 //await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[3]/ul/li[1]/p')).click();
 await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div/div[4]/div/div/tbody/tr[1]/td[2]/div')).click();
 await driver.sleep(5000);
-var elems = await driver.findElements(By.className('table-item'));
-map(elems, e => e.getText())
-  .then(function(payForMonth) {
+async function Tashlum(elems, icons)
+let elems = await driver.findElements(By.className('table-item'));
 
-    for (let elem of elems){
-      if (payForMonth != '0')
-          elem.click()
-    }
-  });
+for(let elem of elems){
+  text= await elem.getText();
+ 
+}
+
 
 let icons = await driver.findElements(By.className('paymentSign'));
-map(icons, e => e.getText())
-  .then(function(insideicons) {
-    ;
-    for (let elem of elems){
-      if (insideicons != '')
-          elem.click()
-    }
-
-  });
+ for(icon of icons){
+   text = await icons.getText();
+   if(text != '')
+    icon.click();
+ }
 
 }
 
