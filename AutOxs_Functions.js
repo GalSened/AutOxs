@@ -6,6 +6,9 @@ const{Builder, By, Key, util} = require('selenium-webdriver');
 const { threadId } = require('worker_threads');
 let driver =  new Builder().forBrowser('chrome').build();
 const xlsxFile = require('read-excel-file/node');
+var webdriver = require('selenium-webdriver');
+var map = webdriver.promise.map;
+
 
 
  
@@ -133,8 +136,6 @@ async function EditApNumber(){
 }
 
 
-
-
 //Adding 5 tenants to "histadrut" 200.
 async function AddTenats(){
 
@@ -149,17 +150,17 @@ async function AddTenats(){
   await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[1]/div[2]/input')).sendKeys(MyData[1][3])
   await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[3]/div[2]/input')).sendKeys(MyData[2][3])
   await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[5]/div[2]/div/div/input')).sendKeys(MyData[3][3])
-  clckBtn = await driver.findElement(By.xpath('//*[@id="612b340e3be86169b2342b70"]/div[1]/div[2]/div[2]/footer/center/div[2]/button'));
+  clckBtn = await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[1]/div[2]/div[2]/footer/center/div[2]/button'));
   clckBtn.click();
   await driver.sleep(4000);
   await driver.findElement(By.css('#modalDescription > div > div.body > div > div')).click();
   await driver.navigate().back();
-  //Add another tenant from DAIARIM list
+  // go to DAIARIM list
   await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[2]/div/p')).click();
   await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[2]/ul/li[1]/p')).click();
   await driver.sleep(4000);
  
-
+//Add another 4 tenants from DAIARIM list
   const xpathi = ['//*[@id="view"]/div/div[3]/div/div/div[3]/table/tbody/tr[2]/td[1]/span/p', '//*[@id="view"]/div/div[3]/div/div/div[3]/table/tbody/tr[3]/td[1]/span/p', '//*[@id="view"]/div/div[3]/div/div/div[3]/table/tbody/tr[4]/td[1]/span/p', '//*[@id="view"]/div/div[3]/div/div/div[3]/table/tbody/tr[5]/td[1]/span/p'];
   let f =4;
   text='';
@@ -173,7 +174,7 @@ async function AddTenats(){
       await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[1]/div[2]/input')).sendKeys(MyData[f][3])
       await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[3]/div[2]/input')).sendKeys(MyData[2][3])
       await driver.findElement(By.xpath('//*[@id="modalDescription"]/div/div/div[5]/div[2]/div/div/input')).sendKeys(MyData[3][3])
-      clkBtn2 = await driver.findElement(By.xpath('//*[@id="612b340e3be86169b2342b70"]/div[1]/div[2]/div[2]/footer/center/div[2]/button'));
+      clkBtn2 = await driver.findElement(By.xpath('//*[@id="610a6d8bf0691d26a2124ad1"]/div[1]/div[2]/div[2]/footer/center/div[2]/button'));
       clkBtn2.click();
       await driver.sleep(4000);
       await driver.findElement(By.css('#modalDescription > div > div.body > div > div')).click();
@@ -181,9 +182,6 @@ async function AddTenats(){
       await f++;
       await driver.sleep(4000);
   }    
-
-
-
   await driver.takeScreenshot().then(
   function(image, err) {
   require('fs').writeFile('Screenshot_2tenants.png', image, 'base64', function(err) {
@@ -193,9 +191,7 @@ async function AddTenats(){
 );
 }
 
-//
 
-AddTenats();
 
 //login specificly to histadrut 200
 async function LoginHistadrut200(){
@@ -203,7 +199,7 @@ async function LoginHistadrut200(){
   login(); 
   await driver.sleep(10000);      
   await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/img')).click();
-  await driver.findElement(By.id('612b340e3be86169b2342b70')).click();
+  await driver.findElement(By.id('610a6d8bf0691d26a2124ad1')).click();
   
 }
 
@@ -270,7 +266,44 @@ async function ArrangeBuilding(){
 }
 
 
+async function TashlumTenant1(){
 
+await LoginHistadrut200();
+await driver.sleep(3000);
+//await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[3]/div/p')).click();
+//await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[3]/ul/li[1]/p')).click();
+await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div/div/div[4]/div/div/tbody/tr[1]/td[2]/div')).click();
+await driver.sleep(5000);
+var elems = await driver.findElements(By.className('table-item'));
+map(elems, e => e.getText())
+  .then(function(payForMonth) {
+
+    console.log(payForMonth);
+ 
+  });
+
+let icons = await driver.findElements(By.className('paymentSign'));
+map(icons, e => e.getText())
+  .then(function(insideicons) {
+
+    console.log(insideicons);
+
+  });
+for (let elem of elems){
+  if (elems != 0 && icons != '')
+      elem.click()
+     
+
+}
+
+
+
+}
+
+
+
+
+TashlumTenant1();
 
 
 async function AddNewExpence(){
