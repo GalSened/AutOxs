@@ -278,27 +278,28 @@ var elems = await driver.findElements(By.className('table-item'));
 map(elems, e => e.getText())
   .then(function(payForMonth) {
 
-    console.log(payForMonth);
- 
+    for (let elem of elems){
+      if (payForMonth != '0')
+          elem.click()
+    }
   });
 
 let icons = await driver.findElements(By.className('paymentSign'));
 map(icons, e => e.getText())
   .then(function(insideicons) {
-
-    console.log(insideicons);
+    ;
+    for (let elem of elems){
+      if (insideicons != '')
+          elem.click()
+    }
 
   });
-for (let elem of elems){
-  if (elems != 0 && icons != '')
-      elem.click()
-     
 
 }
 
 
 
-}
+
 
 
 
