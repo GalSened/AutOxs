@@ -7,12 +7,16 @@
     "axios": "^0.21.1",
     "chai": "^4.3.4",
     "cheerio": "^1.0.0-rc.10",
+    "cypress": "^8.3.1",
     "playwright": "^1.14.1",
     "read-excel-file": "^5.2.9",
     "xlsx": "^0.17.1"
+    
   },
   "scripts": {
-    "test": "mocha"
+    "e2e": "cypress open"
+   
+
   },
   "repository": {
     "type": "git",
