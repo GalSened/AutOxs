@@ -73,7 +73,7 @@ class Main {
   }
 
 
-  //not ready yet needs more reserch
+  //not ready yet needs more research
   async createBuildingFromEXcel() {
 
     await login();
