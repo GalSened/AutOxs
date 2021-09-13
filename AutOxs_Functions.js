@@ -15,12 +15,6 @@ class Main {
 
 
 
-
-
-
-
-
-
   async openBrowser() {
     await driver.get(MyData[3][0]);
   }
@@ -49,17 +43,17 @@ class Main {
     assert.strictEqual(CompanyName, 'בניינים ונהנים בע"מ');
     await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[1]/div/p')).click();
     await driver.findElement(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[4]/div[1]/ul/li[3]/p')).click();
-    await driver.sleep(5000);
-    await driver.findElement(By.id('city')).sendKeys(MyData[1][1]);
+    //await driver.sleep(5000);
+    await driver.wait(until.elementLocated(By.id('city')).sendKeys(MyData[1][1]));
     await driver.findElement(By.id('street')).sendKeys(MyData[2][1]);
     await driver.findElement(By.xpath('//*[@id="number"]')).sendKeys(MyData[3][1]);
     await driver.findElement(By.xpath('//*[@id="numberAppartments"]')).sendKeys(MyData[4][1]);
     await driver.findElement(By.xpath('//*[@id="numberAppartmentsConfirm"]')).sendKeys(MyData[4][1]);
     await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[4]/span/div/form/div[8]/div/button')).click();
-    await driver.sleep(2000);
-    await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[5]/span/div[2]/div/form/div/div[2]/center/button')).click();
-    await driver.sleep(2000);
-    await driver.findElement(By.xpath('//*[@id="amount"]')).sendKeys(MyData[5][1]);
+    //await driver.sleep(2000);
+    await driver.wait(until.elementLocated(By.xpath('//*[@id="view"]/div/div[3]/div/div[5]/span/div[2]/div/form/div/div[2]/center/button'))).click();
+    //await driver.sleep(2000);
+    await driver.wait(until.elementLocated(By.xpath('//*[@id="amount"]'))).sendKeys(MyData[5][1]);
     await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[1]/div/input')).click();
     await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[1]/div/ul/li[1]')).click();
     await driver.findElement(By.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[3]/div/div/div[2]/div/input')).click();
@@ -73,7 +67,7 @@ class Main {
   }
 
 
-  //not ready yet needs more reserch
+  //not ready yet needs more research
   async createBuildingFromEXcel() {
 
     await login();
@@ -320,4 +314,6 @@ class Main {
 
 }
 module.exports = new Main();
+
+
 
