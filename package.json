@@ -7,7 +7,6 @@
     "axios": "^0.21.1",
     "chai": "^4.3.4",
     "cheerio": "^1.0.0-rc.10",
-    "cypress": "^8.3.1",
     "playwright": "^1.14.1",
     "read-excel-file": "^5.2.9",
     "xlsx": "^0.17.1"
@@ -27,6 +26,12 @@
   "homepage": "https://github.com/GalSened/GitRepo#readme",
   "description": "",
   "devDependencies": {
-    "@cypress/code-coverage": "^3.9.11"
+    "@cypress/code-coverage": "^3.9.11",
+    "@cypress/vue": "^2.2.3",
+    "@cypress/webpack-dev-server": "^1.6.0",
+    "cypress": "^8.3.1",
+    "cypress-dark": "^1.8.0",
+    "cypress-xpath": "^1.6.2",
+    "html-webpack-plugin": "^4.5.2"
   }
 }
