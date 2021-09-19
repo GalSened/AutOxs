@@ -34,6 +34,7 @@
     "cypress-browser-permissions": "^1.0.5",
     "cypress-dark": "^1.8.0",
     "cypress-select-tests": "^1.7.1",
+    "cypress-wait-until": "^1.7.1",
     "cypress-xpath": "^1.6.2",
     "html-webpack-plugin": "^4.5.2",
     "node-xlsx": "^0.17.1"
