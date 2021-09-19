@@ -9,21 +9,7 @@ const { it } = require('mocha');
 // https://on.cypress.io/writing-first-test
 require('cypress-xpath')
 require('cypress-dark/src/halloween')
-module.exports = (on, config) => {
-    on('before:browser:launch', (browser = {}, launchOptions) => {
-      if (browser.family === 'chromium' && browser.name !== 'electron') {
-        launchOptions.args.push('--start-fullscreen')
-  
-        return launchOptions
-      }
-  
-      if (browser.name === 'electron') {
-        launchOptions.preferences.fullscreen = true
-  
-        return launchOptions
-      }
-    })
-  }
+
 
 describe('verify right Page', () =>{      
 
@@ -32,6 +18,7 @@ describe('verify right Page', () =>{
       cy.visit('https://dev.oxs.co.il/');
       cy.xpath('//*[@id="view"]/div/header/div[2]/p').should('contain', 'כניסה למערכת');
 
+      
    });
    
    it('logging in', () => {
