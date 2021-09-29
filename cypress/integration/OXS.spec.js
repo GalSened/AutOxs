@@ -6,10 +6,16 @@
 
 const { it } = require('mocha');
 
+
 // https://on.cypress.io/writing-first-test
 require('cypress-xpath')
 require('cypress-dark/src/halloween')
 
+
+beforeEach(() => {
+   cy.log('I run before every test in every spec file!!!!!!')
+   cy.fixture('DATA.json').as('data')
+ })
 
 describe('verify right Page', () =>{      
 
