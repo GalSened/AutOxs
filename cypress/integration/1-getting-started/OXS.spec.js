@@ -11,12 +11,9 @@ const { it } = require('mocha');
 require('cypress-xpath')
 require('cypress-dark/src/halloween')
 
-   
 
-   before(() => {
-   cy.log('test suite')
- 
-   })
+
+   
 
    describe('verify right Page', () =>{  
       let loginData
@@ -28,7 +25,7 @@ require('cypress-dark/src/halloween')
       
       
    
-    
+   
       it('verify oxs page', () => {
       cy.visit("https://dev.oxs.co.il/");
       cy.get('.normal').should('contain', 'כניסה למערכת');
@@ -48,7 +45,7 @@ require('cypress-dark/src/halloween')
          
       });
 
-});
+   });
 
 
 
