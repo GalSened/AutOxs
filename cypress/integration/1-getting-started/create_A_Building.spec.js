@@ -21,10 +21,10 @@ describe('adding new building', () =>{
     it('opening homepage',()=>{    
         cy.visit("https://stg.oxs.co.il/");
         cy.document().its('fullscreenEnabled').should('be.true');
-        cy.get('.normal').click();
-        cy.get('#inputs > [type="text"]').type(loginData.userName);
+        cy.get('.loginButton > p').click();
+        cy.get('[type="email"]').type(loginData.userName);
         cy.get('[type="password"]').type(loginData.password);   
-        cy.get('center > input').click();  
+        cy.get('#login-submit > input').click();  
     
     });    
 
@@ -51,10 +51,10 @@ describe('adding new building', () =>{
         cy.get('.grid-col-12 > .grid-container > :nth-child(2) > .selectListWrapper > img').click();
         cy.contains('2021').click();
         cy.get(':nth-child(4) > .grid-col-2 > center > .newBuildingWindowButton').click();
-        cy.get(':nth-child(2) > .newBuildingWindow > .form-horizontal > .grid-container > .grid-col-2 > center > .newBuildingWindowButton').click();
+        cy.xpath('//*[@id="view"]/div/div[3]/div/div[6]/span/ul/ul/form/div[4]/div[2]/center/button').click();
         cy.wait(1000);
         cy.xpath('//*[@id="done"]/center/input').click();
-       
+        
     });
 
 });
