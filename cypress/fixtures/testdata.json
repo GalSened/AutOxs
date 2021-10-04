@@ -1,0 +1,21 @@
+
+    {
+        "url": "https://stg.oxs.co.il/",
+        "userName": "auto@oxs.com",
+        "password": "123123",
+    
+        "city": "חולון",
+        "street": "ההסתדרות",
+        "streetNumber": "300",
+        "NumOfAp": "5",
+
+        "VAAD_amount": "150",
+        "VAAD_new amount": "200",
+
+        "Name": "גל",
+        "Phone": "0524455586",
+        "Email": "qa@oxs.co.il"
+    }
+
+
+
