@@ -1,7 +1,7 @@
 
     {
-        "url": "https://dev.oxs.co.il/",
-        "userName": "user@test.com",
+        "url": "https://stg.oxs.co.il/",
+        "userName": "auto@oxs.com",
         "password": "123123",
     
         "city": "חולון",

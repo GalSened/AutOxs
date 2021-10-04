@@ -16,7 +16,7 @@ describe('adding new building', () =>{
     })
     
     it('opening homepage',()=>{    
-        cy.visit("https://dev.oxs.co.il/");
+        cy.visit("https://stg.oxs.co.il/");
         cy.document().its('fullscreenEnabled').should('be.true');
         cy.get('.loginButton > p').click();
         cy.get('[type="email"]').type(loginData.userName);
@@ -25,13 +25,13 @@ describe('adding new building', () =>{
     
     });
 
-    it('choosing HISTADRUT 200', () => {
+    it('choosing HISTADRUT 300', () => {
         cy.wait(1000)
         cy.get(':nth-child(1) > .menu-item > .header-text').click();
         cy.get('.specialArrow').click()
         cy.xpath('//*[@id="view"]/div/div[1]/div/div[3]/div/ul/li[1]/input').type('ההסתדרות')  
-        cy.contains('ההסתדרות 96').click();
-        cy.wait(1000)
+        cy.contains('ההסתדרות 300').click();
+        cy.wait(5000)
 
     });
 
