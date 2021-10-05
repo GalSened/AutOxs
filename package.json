@@ -13,7 +13,7 @@
     "xlsx": "^0.17.1"
   },
   "scripts": {
-    "e2e": "cypress open"
+    "test": "mocha --timeout 60000"
   },
   "repository": {
     "type": "git",
