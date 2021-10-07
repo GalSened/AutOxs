@@ -1,0 +1,109 @@
+
+const  assert  = require('assert');
+const { traceDeprecation } = require('process');
+const{Builder, By, Key, until} = require('selenium-webdriver');
+const { threadId } = require('worker_threads');
+let driver =  new Builder().forBrowser('chrome').build();
+const xlsxFile = require('read-excel-file/node');
+var webdriver = require('selenium-webdriver');
+var mocha = require ("mocha")
+var map = webdriver.promise.map;
+
+
+xlsxFile('./Data.xlsx').then((MyData) => {
+    console.table(MyData);
+
+
+
+
+    describe('testing all kind of payments including canceling',function(){
+
+
+        
+        beforeEach(() => {
+            async function before(){
+
+
+            await driver.get(MyData[3][0]);
+            await driver.findElement(By.css('#view > div > header > div.loginButton > p')).click();
+            await driver.findElement(By.xpath('//*[@id="login-form"]/form/input[1]')).sendKeys(MyData[1][0]);
+            await driver.findElement(By.xpath('//*[@id="login-form"]/form/input[2]')).sendKeys(MyData[2][0]);
+            await driver.findElement(By.xpath('//*[@id="login-submit"]/input')).click();
+            await driver.sleep(1000);      
+            await driver.wait(until.elementLocated(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/img')),10000).click();
+            await driver.findElement(By.id('612b340e3be86169b2342b70')).click();
+            }
+            before();
+        })
+
+
+        it('pay full vaad in cash', () => {
+
+
+            assert.equal(1,1)
+
+        })
+
+
+        it('pay half vaad in cash', () => {
+            
+
+
+        });
+
+
+        it('pay the second half of vaad in CC', () => {
+            
+
+        });
+
+
+        it('pay full vaad in check', () => {
+            
+        });
+
+
+        it('pay full vaad in bank transfer', () => {
+            
+        });
+
+
+        it('pay full vaad in "deferent" payment', () => {
+            
+        });
+
+
+        it('open a new CC direct debit', () => {
+            
+        });
+
+
+        it('open a new bank direct debit', () => {
+            
+        });
+
+
+
+        it('create a new deal receipt', () => {
+            
+        });
+
+
+        it('canceling payment', () => {
+            
+        });
+
+
+    });
+});
+
+
+
+
+
+
+
+
+
+
+

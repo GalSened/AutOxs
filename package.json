@@ -8,8 +8,10 @@
     "chai": "^4.3.4",
     "cheerio": "^1.0.0-rc.10",
     "cypress": "^8.4.0",
+    "mocha": "^9.1.2",
     "playwright": "^1.14.1",
     "read-excel-file": "^5.2.9",
+    "request": "^2.88.2",
     "xlsx": "^0.17.1"
   },
   "scripts": {
