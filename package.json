@@ -15,7 +15,7 @@
     "xlsx": "^0.17.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "mocha --timeout 60000"
   },
   "repository": {
     "type": "git",
@@ -44,13 +44,6 @@
   "directories": {
     "test": "test"
   },
-  "keywords": [
-    "javascript",
-    "selenium",
-    "tdd",
-    "local",
-    "test",
-    "jest"
-  ],
+  "keywords": [],
   "description": ""
 }

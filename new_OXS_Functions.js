@@ -252,8 +252,8 @@ var map = webdriver.promise.map;
                     console.log(err);
                     });
                 });
-          
-              
+    
+        
 
 
         }
@@ -310,13 +310,13 @@ var map = webdriver.promise.map;
 
                 await driver.takeScreenshot().then(
                     function(image, err) {
-                        require('fs').writeFile('Screenshot_PaymentPage.png', image, 'base64', function(err) {
+                        require('fs').writeFile('Screenshot_3Floors.png', image, 'base64', function(err) {
                         console.log(err);
                         });
                     });
         }
                 
-   
+
     }) 
 
 
