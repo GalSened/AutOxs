@@ -1,5 +1,5 @@
 node_modules
-data.xlsx
+
 initi
 cypress/integration/1-getting-started/todo.spec.js
 cypress/integration/2-advanced-examples/actions.spec.js
