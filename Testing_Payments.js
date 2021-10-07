@@ -6,8 +6,9 @@ const { threadId } = require('worker_threads');
 let driver =  new Builder().forBrowser('chrome').build();
 const xlsxFile = require('read-excel-file/node');
 var webdriver = require('selenium-webdriver');
-var mocha = require ("mocha")
+const mocha = require ("mocha")
 var map = webdriver.promise.map;
+
 
 
 xlsxFile('./Data.xlsx').then((MyData) => {
@@ -16,12 +17,12 @@ xlsxFile('./Data.xlsx').then((MyData) => {
 
 
 
-    describe('testing all kind of payments including canceling',function(){
+    describe('testing all kind of payments including canceling',() => {
 
 
         
-        beforeEach(() => {
-            async function before(){
+        beforeEach( async() => {
+            
 
 
             await driver.get(MyData[3][0]);
@@ -32,12 +33,12 @@ xlsxFile('./Data.xlsx').then((MyData) => {
             await driver.sleep(1000);      
             await driver.wait(until.elementLocated(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/img')),10000).click();
             await driver.findElement(By.id('612b340e3be86169b2342b70')).click();
-            }
-            before();
-        })
+            })
+            
+        
 
 
-        it('pay full vaad in cash', () => {
+        it('pay full vaad in cash', async () => {
 
 
             assert.equal(1,1)
@@ -45,40 +46,40 @@ xlsxFile('./Data.xlsx').then((MyData) => {
         })
 
 
-        it('pay half vaad in cash', () => {
+        it('pay half vaad in cash', async() => {
             
 
 
         });
 
 
-        it('pay the second half of vaad in CC', () => {
+        it('pay the second half of vaad in CC',async () => {
             
 
         });
 
 
-        it('pay full vaad in check', () => {
+        it('pay full vaad in check', async() => {
             
         });
 
 
-        it('pay full vaad in bank transfer', () => {
+        it('pay full vaad in bank transfer',async () => {
             
         });
 
 
-        it('pay full vaad in "deferent" payment', () => {
+        it('pay full vaad in "deferent" payment',async () => {
             
         });
 
 
-        it('open a new CC direct debit', () => {
+        it('open a new CC direct debit',async () => {
             
         });
 
 
-        it('open a new bank direct debit', () => {
+        it('open a new bank direct debit',async () => {
             
         });
 

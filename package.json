@@ -15,7 +15,7 @@
     "xlsx": "^0.17.1"
   },
   "scripts": {
-    "test": "mocha --timeout 60000"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
     "url": "https://github.com/GalSened/GitRepo/issues"
   },
   "homepage": "https://github.com/GalSened/GitRepo#readme",
-  "description": "",
   "devDependencies": {
     "@cypress/code-coverage": "^3.9.11",
     "@cypress/vue": "^2.2.3",
@@ -41,5 +40,17 @@
     "cypress-xpath": "^1.6.2",
     "html-webpack-plugin": "^4.5.2",
     "node-xlsx": "^0.17.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "javascript",
+    "selenium",
+    "tdd",
+    "local",
+    "test",
+    "jest"
+  ],
+  "description": ""
 }
