@@ -4,6 +4,7 @@
   "main": "Sanity_Suite.js",
   "dependencies": {
     "@cucumber/cucumber": "^7.3.1",
+    "@tpio/javascript-opensdk": "^0.1.0",
     "axios": "^0.21.1",
     "chai": "^4.3.4",
     "cheerio": "^1.0.0-rc.10",
@@ -12,10 +13,11 @@
     "playwright": "^1.14.1",
     "read-excel-file": "^5.2.9",
     "request": "^2.88.2",
+    "test": "^0.6.0",
     "xlsx": "^0.17.1"
   },
   "scripts": {
-    "test": "mocha --timeout 60000"
+    "test": "mocha ./test/*.js --timeout 10000"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,7 @@
     "cypress-wait-until": "^1.7.1",
     "cypress-xpath": "^1.6.2",
     "html-webpack-plugin": "^4.5.2",
+    "mochawesome": "^6.3.1",
     "node-xlsx": "^0.17.1"
   },
   "directories": {

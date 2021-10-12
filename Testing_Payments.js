@@ -33,9 +33,11 @@ xlsxFile('./Data.xlsx').then((MyData) => {
             await driver.sleep(1000);      
             await driver.wait(until.elementLocated(By.xpath('//*[@id="view"]/div/div[2]/div/div[1]/div[2]/img')),10000).click();
             await driver.findElement(By.id('612b340e3be86169b2342b70')).click();
-            })
+        })
             
-        
+        afterEach(async () => {
+            await driver.quit();
+        });
 
 
         it('pay full vaad in cash', async () => {
@@ -46,7 +48,7 @@ xlsxFile('./Data.xlsx').then((MyData) => {
         })
 
 
-        it('pay half vaad in cash', async() => {
+        it('pay partial vaad in cash', async() => {
             
 
 
