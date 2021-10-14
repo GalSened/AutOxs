@@ -1,8 +1,8 @@
-const asert= require('assert')
+const assert= require('assert')
 const { traceDeprecation } = require('process');
 const{Builder, By, Key, until} = require('selenium-webdriver');
-const { threadId } = require('worker_threads');
 const xlsxFile = require('read-excel-file/node');
+const { describe, it } = require("mocha");
 var webdriver = require('selenium-webdriver');
 xlsxFile('././Data.xlsx').then((MyData) => {
     //console.table(MyData);
