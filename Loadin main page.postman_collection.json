@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "b341d1b7-4345-4f0b-910d-34e77842790b",
+		"name": "Loadin main page",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GettingToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check the active environment\", () => {\r",
+							"  pm.expect(pm.environment.name).to.eql(\"STG_OXS\");\r",
+							"});\r",
+							" \r",
+							"  \r",
+							"let  jsondata = pm.response.json();\r",
+							"\r",
+							"pm.environment.set(\"token\", jsondata.data.token);\r",
+							"//console.log(jsondata.data.token)\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Object is contained\", () => {\r",
+							"  const expectedObject = {\r",
+							"    \"status\": 1 \r",
+							"  };\r",
+							"  pm.expect(pm.response.json()).to.deep.include(expectedObject);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"loginEmail\": {{Email}},\r\n \"loginPassword\": {{loginPassword}}, \r\n \"termsAccepeted\": false \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://stgapi.oxs.co.il/api/user/login?Email={{loginEmail}}&Password={{loginPassword}}",
+					"protocol": "https",
+					"host": [
+						"stgapi",
+						"oxs",
+						"co",
+						"il"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": "{{loginEmail}}"
+						},
+						{
+							"key": "Password",
+							"value": "{{loginPassword}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth Check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"Unauthorized\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://stgapi.oxs.co.il/api/companies/buildingsList/59f88d8853d79bbe8dee51e4",
+					"protocol": "https",
+					"host": [
+						"stgapi",
+						"oxs",
+						"co",
+						"il"
+					],
+					"path": [
+						"api",
+						"companies",
+						"buildingsList",
+						"59f88d8853d79bbe8dee51e4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get role allowed path",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Object is contained\", () => {\r",
+							"  const expectedObject = {\r",
+							"    \"status\": 1\r",
+							"  };\r",
+							"  pm.expect(pm.response.json()).to.deep.include(expectedObject);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://stgapi.oxs.co.il/api/user/getRoleAllowedPaths/5a70662db65454f44be7b966",
+					"protocol": "https",
+					"host": [
+						"stgapi",
+						"oxs",
+						"co",
+						"il"
+					],
+					"path": [
+						"api",
+						"user",
+						"getRoleAllowedPaths",
+						"5a70662db65454f44be7b966"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Building list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"pm.test(\"Object is contained\", () => {\r",
+							"  const expectedObject = {\r",
+							"    \"status\": 1\r",
+							"  };\r",
+							"  pm.expect(pm.response.json()).to.deep.include(expectedObject);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Object is contained\", () => {\r",
+							"  const expectedObject = {\r",
+							"   \r",
+							"   \"logo\" : \"1548778354440.jpg\" \r",
+							"\r",
+							"  };\r",
+							"  let Jas = pm.response.body.json()\r",
+							"  pm.expect(Jas.data).to.deep.include(expectedObject);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://stgapi.oxs.co.il/api/companies/buildingsList/59f88d8853d79bbe8dee51e4",
+					"protocol": "https",
+					"host": [
+						"stgapi",
+						"oxs",
+						"co",
+						"il"
+					],
+					"path": [
+						"api",
+						"companies",
+						"buildingsList",
+						"59f88d8853d79bbe8dee51e4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserPrefs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Object is contained\", () => {\r",
+							"  const expectedObject = {\r",
+							"    \"status\": 1\r",
+							"  };\r",
+							"  pm.expect(pm.response.json()).to.deep.include(expectedObject);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://stgapi.oxs.co.il/api/user/getUserPrefs/5a70662db65454f44be7b966",
+					"protocol": "https",
+					"host": [
+						"stgapi",
+						"oxs",
+						"co",
+						"il"
+					],
+					"path": [
+						"api",
+						"user",
+						"getUserPrefs",
+						"5a70662db65454f44be7b966"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
